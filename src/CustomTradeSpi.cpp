@@ -80,7 +80,7 @@ void CustomTradeSpi::OnRspUserLogout(
 {
 	if (!isErrorRspInfo(pRspInfo))
 	{
-		loginFlag = false; // 登出就不能再交易了 
+		loginFlag = false; // 登出就不能再交易了
 		std::cout << "=====账户登出成功=====" << std::endl;
 		std::cout << "经纪商： " << pUserLogout->BrokerID << std::endl;
 		std::cout << "帐户名： " << pUserLogout->UserID << std::endl;
@@ -161,7 +161,7 @@ void CustomTradeSpi::OnRspQryInvestorPosition(
 		}
 		else
 			std::cout << "----->该合约未持仓" << std::endl;
-		
+
 		// 报单录入请求（这里是一部接口，此处是按顺序执行）
 		/*if (loginFlag)
 			reqOrderInsert();*/
@@ -176,7 +176,7 @@ void CustomTradeSpi::OnRspQryInvestorPosition(
 }
 
 void CustomTradeSpi::OnRspOrderInsert(
-	CThostFtdcInputOrderField *pInputOrder, 
+	CThostFtdcInputOrderField *pInputOrder,
 	CThostFtdcRspInfoField *pRspInfo,
 	int nRequestID,
 	bool bIsLast)
@@ -346,7 +346,7 @@ void CustomTradeSpi::reqOrderInsert()
 	strcpy(orderInsertReq.OrderRef, order_ref);
 	///报单价格条件: 限价
 	orderInsertReq.OrderPriceType = THOST_FTDC_OPT_LimitPrice;
-	///买卖方向: 
+	///买卖方向:
 	orderInsertReq.Direction = gTradeDirection;
 	///组合开平标志: 开仓
 	orderInsertReq.CombOffsetFlag[0] = THOST_FTDC_OF_Open;
@@ -397,7 +397,7 @@ void CustomTradeSpi::reqOrderInsert(
 	strcpy(orderInsertReq.OrderRef, order_ref);
 	///报单价格条件: 限价
 	orderInsertReq.OrderPriceType = THOST_FTDC_OPT_LimitPrice;
-	///买卖方向: 
+	///买卖方向:
 	orderInsertReq.Direction = direction;
 	///组合开平标志: 开仓
 	orderInsertReq.CombOffsetFlag[0] = THOST_FTDC_OF_Open;
